@@ -1,0 +1,36 @@
+<h4>Template for main page:</h4>
+<div class="container-fluid">
+  <div class="well">
+    <form [formGroup]="locationForm">
+        <h2>Enter a zipcode:</h2>
+        <input
+          class="form-control"
+          placeholder="Zipcode"
+          type="text"
+          id="addLocation"
+          formControlName="zipcode"
+        />
+        <br />
+        <button class="btn btn-primary" id="addLocationBtn" (click)="addLocation()">Add location</button>    
+    </form>
+  </div>
+  <div *ngFor="let weatherDetails of weatherDetailsList; let i = index">
+    <div class="well flex">
+      <div>
+        <h3>{{weatherDetails.name}} ({{weatherDetails.zipcode}})</h3>
+        <h4>Current conditions: {{weatherDetails.weather[0].main}}</h4>
+        <h4>Temperatures today:</h4>
+        <p>Current {{weatherDetails.main.temp}} - Max {{weatherDetails.main.temp_max}} - Min {{weatherDetails.main.temp_min}}</p>
+        <p>
+          <a href="/forecast/95742">Show 5-day forecast for {{weatherDetails.name}}</a>
+        </p>
+      </div>
+      <div>
+        <a (click)="removeWeatherDetails(i)">
+          <span class="close">×</span>
+        </a>
+        <img [src]="getIconPath(weatherDetails.weather[0].main)" />
+      </div>
+    </div>
+  </div>
+</div>
