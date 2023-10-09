@@ -54,27 +54,13 @@ export interface WeatherDetails {
   }
   
   export interface WeatherForecastDetails {
+    city: City
     cod: string
     message: number
     cnt: number
     list: List[]
-    city: City
   }
   
-  export interface List {
-    dt: number
-    main: Main
-    weather: Weather[]
-    clouds: Clouds
-    wind: Wind
-    visibility: number
-    pop: number
-    sys: Sys
-    dt_txt: string
-    rain?: Rain
-    day?: string;
-  }
-
   export interface City {
     id: number
     name: string
@@ -82,10 +68,37 @@ export interface WeatherDetails {
     country: string
     population: number
     timezone: number
-    sunrise: number
-    sunset: number
   }
 
-  export interface Rain {
-    "3h": number
+  export interface List {
+    dt: number
+    sunrise: number
+    sunset: number
+    temp: Temp
+    feels_like: FeelsLike
+    pressure: number
+    humidity: number
+    weather: Weather[]
+    speed: number
+    deg: number
+    gust: number
+    clouds: number
+    pop: number
+    day?: string
+  }
+  
+  export interface Temp {
+    day: number
+    min: number
+    max: number
+    night: number
+    eve: number
+    morn: number
+  }
+  
+  export interface FeelsLike {
+    day: number
+    night: number
+    eve: number
+    morn: number
   }

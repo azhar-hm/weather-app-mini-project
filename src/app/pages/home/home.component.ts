@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { WeatherDetails } from 'src/app/model';
 import { WeatherService } from 'src/app/services/weather.service';
 
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
   weatherDetailsList: WeatherDetails[] = [];
   enteredZipcodes: string[] = [];
 
-  constructor(private formBuilder: FormBuilder, private weatherService: WeatherService) { }
+  constructor(private formBuilder: FormBuilder, private weatherService: WeatherService, private router: Router) { }
 
   ngOnInit(): void {
     this.retrieveZipcodesFromSessionStorage();
@@ -97,11 +98,17 @@ export class HomeComponent implements OnInit {
         return iconPathBase + 'snow.png';
       case 'Sun':
         return iconPathBase + 'sun.png';
+      case 'Clear':
+        return iconPathBase + 'sun.png';
       case 'Clouds':
         return iconPathBase + 'clouds.png';  
       default:
-        return iconPathBase + 'sun.png';
+        return '';
     }
+  }
+
+  getForecastLink(zipcode: string): string {
+    return '/forecast/' + zipcode;
   }
 
 }

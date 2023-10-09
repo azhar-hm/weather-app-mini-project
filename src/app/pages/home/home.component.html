@@ -1,4 +1,4 @@
-<h4>Template for main page:</h4>
+<!-- <h4>Template for main page:</h4> -->
 <div class="container-fluid">
   <div class="well">
     <form [formGroup]="locationForm">
@@ -20,9 +20,9 @@
         <h3>{{weatherDetails.name}} ({{weatherDetails.zipcode}})</h3>
         <h4>Current conditions: {{weatherDetails.weather[0].main}}</h4>
         <h4>Temperatures today:</h4>
-        <p>Current {{weatherDetails.main.temp}} - Max {{weatherDetails.main.temp_max}} - Min {{weatherDetails.main.temp_min}}</p>
+        <p>Current {{weatherDetails.main.temp.toFixed(0)}} - Max {{weatherDetails.main.temp_max.toFixed(0)}} - Min {{weatherDetails.main.temp_min.toFixed(0)}}</p>
         <p>
-          <a href="/forecast/95742">Show 5-day forecast for {{weatherDetails.name}}</a>
+          <a [routerLink]="getForecastLink(weatherDetails.zipcode)">Show 5-day forecast for {{weatherDetails.name}}</a>
         </p>
       </div>
       <div>

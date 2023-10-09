@@ -18,8 +18,7 @@ export class WeatherService {
     return this.htppClient.get(`https://api.openweathermap.org/data/2.5/weather?zip=${zipcode}&appid=${this.appId}&units=${this.units}`) as Observable<WeatherDetails>;
   }
 
-  fetchFiveDaysWeatherForecastByZipcode(zipcode: string): Observable<List[]> {
-    return this.htppClient.get<WeatherForecastDetails>(`https://api.openweathermap.org/data/2.5/forecast?zip=${zipcode},${this.countryCode}&appid=${this.appId}&units=${this.units}`)
-    .pipe(map((response: WeatherForecastDetails) => response.list as List[]));
+  fetchDailyWeatherForecastByZipcode(zipcode: string, count: number): Observable<WeatherForecastDetails> {
+    return this.htppClient.get<WeatherForecastDetails>(`https://api.openweathermap.org/data/2.5/forecast/daily?zip=${zipcode},${this.countryCode}&appid=${this.appId}&units=${this.units}&cnt=${count}`);
   }
 }
