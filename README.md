@@ -1,7 +1,7 @@
 # MiniProjectWeatherAppNew
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
 
-Angular Training Level 2 Mini Project (Weather App)
+Angular Training Level 2 Certification: Mini Project (Weather App)
 
 ## Development server
 
