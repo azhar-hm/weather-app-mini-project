@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "deploy-2": "ng build --configuration production --output-path docs --base-href https://azhar-hm.github.io/weather-app-mini-project/"
   },
   "private": true,
   "dependencies": {
